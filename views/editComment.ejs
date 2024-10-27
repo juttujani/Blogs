@@ -1,0 +1,15 @@
+<%- include('partials/header', { title, user: user }) %>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Edit Comment</h1>
+
+    <form action="/comments/<%= comment._id %>?_method=PUT" method="post" class="border p-4 rounded">
+        <div class="form-group">
+            <label for="content" class="form-label">Comment</label>
+            <textarea name="content" id="content" rows="5" class="form-control"><%= comment.content %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Update Comment</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

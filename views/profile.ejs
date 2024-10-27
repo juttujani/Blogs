@@ -1,0 +1,66 @@
+<%- include("partials/header.ejs",{ title, user: user }) %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Profile</h2>
+        
+        <div class="card mx-auto shadow-sm" style="max-width: 600px;">
+            <div class="card-body text-center">
+                <% if(user?.profilePicture && user?.profilePicture?.url) { %>
+                    <img src="<%= user.profilePicture.url %>" alt="<%= user.username %>" class="img-fluid rounded-circle mb-3" width="150" height="150">
+                <% } else { %>
+                    <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png" alt="default profile picture" class="img-fluid rounded-circle mb-3" width="150" height="150">
+                <% } %>
+
+                <h3><%= user.username %></h3>
+                <p class="text-muted"><%= user.email %></p>
+                <p>Date Joined: <%= user.createdAt.toDateString() %></p>
+                <p><b>Number of posts:</b> <%= postCount %></p>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <a href="/user/edit" class="btn btn-primary me-2">Edit Profile</a>
+                    <form action="/user/delete" method="post">
+                        <button type="submit" class="btn btn-danger">Delete Profile</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+        <% if(posts?.length > 0) { %>
+            <h2 class="text-center mt-5">Posts</h2>
+            <ul class="list-group mt-3">
+                <% posts.forEach((post) => { %>
+                    <li class="list-group-item mb-3 shadow-sm">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="<%= post.images[0].url %>" alt="<%= post.title %>" class="img-fluid rounded">
+                            </div>
+                            <div class="col-md-8">
+                                <h5><a href="/posts/<%= post._id %>" class="text-decoration-none"><%= post.title %></a></h5>
+                                <p><%= post.content %></p>
+                                <p><small>Author: <%=post.author.username%> | <%= post.createdAt.toDateString() %></small></p>
+                            </div>
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <h2 class="text-center mt-5">No posts found</h2>
+        <% } %>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<%- include("partials/footer.ejs") %>

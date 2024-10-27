@@ -1,0 +1,52 @@
+<%- include('partials/header', { title: 'Home', user: user }) %>
+
+<!-- Hero Section -->
+<div
+  class="hero-section text-center d-flex align-items-center justify-content-center vh-100 text-white"
+  style="
+    background-image: url('https://cdn.pixabay.com/photo/2019/06/01/02/14/lake-4243352_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  "
+>
+  <!-- Dark overlay for text readability -->
+  <div
+    style="
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    "
+  ></div>
+  
+  <div class="container" style="position: relative; z-index: 1;">
+    <h1 class="display-3 font-weight-bold mb-4">Welcome to My Blog</h1>
+    <p class="lead mb-4">"Your thoughts matter, let your voice be heard."</p>
+
+    <% if (user) { %>
+      <p class="mb-4">
+        Hello, <span class="username font-weight-bold"><%= user.username %></span>! Welcome back!
+      </p>
+      <a class="btn btn-primary btn-lg" href="/user/profile">
+        <i class="fas fa-user"></i> Go to your profile
+      </a>
+    <% } else { %>
+      <p class="mb-4">
+        Please
+        <a class="btn btn-primary btn-lg mr-2" href="/auth/login">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        or
+        <a class="btn btn-warning btn-lg" href="/auth/register">
+          <i class="fas fa-user-plus"></i> Register
+        </a>
+        to continue.
+      </p>
+    <% } %>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
