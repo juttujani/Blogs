@@ -57,7 +57,7 @@ exports.createPost = asynchandler(async(req,res)=>{
 
 exports.getPosts =asynchandler(async(req,res)=>{
     const posts = await Post.find().populate("author","username");
-    res.render("Posts",{
+    res.render("posts",{
         title:"Posts",
         posts,
         user:req.user,
