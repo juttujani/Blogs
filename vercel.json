@@ -13,10 +13,10 @@
       }
     ],
     "env": {
-      "MONGODB_URL": "@mongodb-url-secret",  
-      "CLOUDINARY_NAME": "@cloudinary-name-secret", 
-      "CLOUDINARY_API_KEY": "@cloudinary-api-key-secret",  
-      "CLOUDINARY_SECRET": "@cloudinary-secret-secret"  
+      "MONGODB_URL": "mongodb+srv://juttujani03:7NsSSjvnBdUpSHQp@fullstack-blog.qfqjn.mongodb.net/?retryWrites=true&w=majority&appName=fullstack-blog",  
+      "CLOUDINARY_NAME": "dbkqbol75", 
+      "CLOUDINARY_API_KEY": "747655658149617",  
+      "CLOUDINARY_SECRET": "moQaBfhyAnarV9vw2Xg86espUao"  
     }
   }
   
