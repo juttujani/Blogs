@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "server.js" 
+      }
+    ],
+    "env": {
+      "MONGODB_URL": "mongodb+srv://juttujani03:7NsSSjvnBdUpSHQp@fullstack-blog.qfqjn.mongodb.net/?retryWrites=true&w=majority&appName=fullstack-blog",
+      "CLOUDINARY_NAME":"bkqbol75",
+      "CLOUDINARY_API_KEY":"747655658149617",
+"CLOUDINARY_SECRET":"moQaBfhyAnarV9vw2Xg86espUao",
+    }
+  }
