@@ -13,7 +13,7 @@ const postRoutes = require("./routes/postRoutes");
 const errorHandler = require("./middlewares/errorHandler");
 const commentRoutes = require("./routes/commentRoute");
 const profileRoutes = require("./routes/profileRoutes");
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
 app.use(express.urlencoded({ extended: true }))
 
