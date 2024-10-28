@@ -37,7 +37,7 @@ exports.getEditProfileForm = asynchandler(async(req,res)=>{
             error:"User not found"
         })
     }
-    res.render("editprofile",{
+    res.render("editProfile",{
         title:"editProfile",
         user,
        error:"",
