@@ -13,7 +13,7 @@ const postRoutes = require("./routes/postRoutes");
 const errorHandler = require("./middlewares/errorHandler");
 const commentRoutes = require("./routes/commentRoute");
 const profileRoutes = require("./routes/profileRoutes");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }))
 
@@ -50,7 +50,7 @@ mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
     console.log("db connected");
     
-    app.listen(port, ()=>{
+    app.listen(port,'0.0.0.0', ()=>{
         console.log(`server is running on http://localhost:${port}`)
     })
 }).catch(()=>{
