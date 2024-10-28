@@ -2,6 +2,7 @@ require("dotenv").config();
 const express  = require("express")
 const app = express()
 const mongoose = require("mongoose");
+const path = require("path");
 const passport = require("passport");
 const session = require("express-session")
 const methodOverride = require("method-override");
@@ -30,6 +31,7 @@ passportconfig(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine","ejs")
 
 app.get("/",(req, res) => {
